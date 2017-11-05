@@ -1,0 +1,23 @@
+<div class="col-md-12">
+  <h1><%= @product.title %></h1>
+  <div class="col-md-6">
+    <% if @product.image.present? %>
+      <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+    <% else %>
+      <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <h2><%= @product.title %></h2>
+    <div style="height:100px">
+      <p>
+        <%= render_product_description(@product) %>
+      </p>
+    </div>
+    <div>数量: <%= @product.quantity %></div>
+    <div>价钱: <%= @product.price %> RMB</div>
+    <div class="pull-right">
+      <%= link_to("加入购物车", "#", class: "btn btn-primary btn-lg btn-danger") %>
+    </div>
+  </div>
+</div>
