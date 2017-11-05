@@ -1,6 +1,17 @@
 <tr>
   <td><%= product.id %></td>
   <td><%= link_to(product.title, admin_product_path(product)) %></td>
+  <td>
+    <div class="col-xs-6 col-md-3">
+      <%= link_to admin_product_path(product) do %>
+        <% if product.image.present? %>
+          <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+        <% end %>
+      <% end %>
+    </div>
+  </td>
   <td><%= render_product_description(product) %></td>
   <td><%= product.quantity %></td>
   <td><%= product.price %></td>
