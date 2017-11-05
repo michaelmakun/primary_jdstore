@@ -1,0 +1,20 @@
+<div class="col-md-12">
+  <h3>Product List</h3>
+  <%= link_to("Add new product", new_admin_product_path(@product), class: "btn btn-sm btn-primary pull-right") %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>品名</th>
+        <th>描述</th>
+        <th>库存</th>
+        <th>价格</th>
+        <th>管理选项</th>
+        <th>创建日期</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render :partial => "product_item", :collection => @products, :as => :product %>
+    </tbody>
+  </table>
+</div>
